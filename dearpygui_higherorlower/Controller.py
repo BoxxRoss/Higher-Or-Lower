@@ -1,12 +1,10 @@
-
+from cProfile import label
 from tokenize import Number
 import dearpygui.dearpygui as dpg
 import random
 
 dpg.create_context()
-dpg.create_viewport(title='Higher Or Lower', width=600, height=300)
-
-output_id = dpg.generate_uuid()
+dpg.create_viewport(title='Custom Title', width=600, height=300)
 
 guesses = 10
 number_to_guess = random.randint(1,100)
@@ -18,7 +16,7 @@ with dpg.window(label="Example Window"):
 
 def Number():
     print("Go higher");
-    
+    dpg.set_value()
 
 with dpg.handler_registry():
     dpg.add_mouse_down_handler
